@@ -1,13 +1,19 @@
 class C
-  var a: U8
+  var a_u8: U8
+  var b_u8: U8
 
-  new create() =>
-    init()
+  new ref make() =>
+    //this.a_u8 = 12
+    this.b_u8 = 13
+    this.init_A()
+    //init_B()
 
-  fun ref init() =>
-    a = 1
+  fun ref init_A() =>
+    a_u8 = 21
+
+  //fun init_B() =>
+  //  b_u8 = 31
 
 actor Main
   new create(env: Env) =>
-    let c: C = C.create()
-    //env.out.print("c.a=" + c.a.string())
+    var c: C ref = C.make()
